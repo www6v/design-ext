@@ -1,0 +1,25 @@
+# PyTorch with CUDA 12.1 support
+torch==2.5.1
+torchvision==0.20.1
+torchaudio==2.5.1
+
+# HuggingFace Diffusers
+diffusers==0.31.0
+transformers==4.46.3
+accelerate==1.1.1
+safetensors==0.4.5
+
+# FastAPI and server
+fastapi==0.115.5
+uvicorn[standard]==0.32.1
+python-multipart==0.0.12
+pydantic==2.10.1
+
+# Image processing
+Pillow==11.0.0
+numpy==1.26.4
+
+# Utilities
+python-dotenv==1.0.1
+tqdm==4.67.0
+loguru==0.7.2

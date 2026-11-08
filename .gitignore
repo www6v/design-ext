@@ -1,0 +1,52 @@
+# Python virtual environments
+**/venv/
+**/.venv/
+**/env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Logs
+*.log
+logs/
+
+# Outputs
+outputs/*.png
+outputs/*.jpg
+outputs/*.jpeg
+
+# Environment variables
+.env
+.env.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+
+# Model files (too large for GitHub)
+**/models/*.safetensors
+**/models/*.bin
+**/models/*.ckpt
+
+# Node modules (if any)
+node_modules/
+
+# Build outputs
+dist/
+build/
+*.egg-info/
