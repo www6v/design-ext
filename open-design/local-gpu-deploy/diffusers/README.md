@@ -46,9 +46,9 @@
 │  │  └── GET  /v1/models                                      │  │
 │  │  ↓                                                        │  │
 │  │  Diffusers Pipeline                                        │  │
+│  │  ├── SDXL 1.0 (默认)                                        │  │
 │  │  ├── FLUX.1-dev (fp8)                                     │  │
-│  │  ├── FLUX.1-schnell                                       │  │
-│  │  └── SDXL 1.0                                             │  │
+│  │  └── FLUX.1-schnell                                       │  │
 │  │  ↓                                                        │  │
 │  │  NVIDIA RTX 3090 (24GB VRAM)                              │  │
 │  └──────────────────────────────────────────────────────────┘  │
@@ -120,12 +120,12 @@ pip install -r requirements.txt
 # 设置 HuggingFace 镜像 (国内加速)
 export HF_ENDPOINT=https://hf-mirror.com
 
-# 预热缓存 - 下载 FLUX.1-dev fp8 模型
+# 预热缓存 - 下载 SDXL 模型
 python -c "
-from diffusers import FluxPipeline
+from diffusers import StableDiffusionXLPipeline
 import torch
-pipe = FluxPipeline.from_pretrained(
-    'black-forest-labs/FLUX.1-dev',
+pipe = StableDiffusionXLPipeline.from_pretrained(
+    'stabilityai/stable-diffusion-xl-base-1.0',
     torch_dtype=torch.float16
 ).to('cuda')
 print('Model loaded successfully!')
@@ -139,7 +139,7 @@ print('Model loaded successfully!')
 python server.py --host 0.0.0.0 --port 7865
 
 # 或指定模型
-python server.py --model flux-dev --port 7865
+python server.py --model sdxl --port 7865
 ```
 
 ### 5. 配置 Tailscale (两台机器都需要)
@@ -249,7 +249,7 @@ POST /v1/images/generations
 | 字段 | 类型 | 必填 | 说明 |
 |------|------|------|------|
 | `prompt` | string | ✅ | 文本描述 |
-| `model` | string | ❌ | 模型名称 (默认: flux-dev) |
+| `model` | string | ❌ | 模型名称 (默认: sdxl) |
 | `n` | integer | ❌ | 生成数量 (默认: 1) |
 | `size` | string | ❌ | 图片尺寸 (默认: 1024x1024) |
 | `response_format` | string | ❌ | 返回格式: `b64_json` 或 `url` (默认: b64_json) |
@@ -264,7 +264,7 @@ curl -X POST https://your-tunnel.trycloudflare.com/v1/images/generations \
   -H "Content-Type: application/json" \
   -d '{
     "prompt": "a beautiful mountain landscape at sunset, 4k, high quality",
-    "model": "flux-dev",
+    "model": "sdxl",
     "n": 1,
     "size": "1024x1024",
     "num_inference_steps": 20,
@@ -301,7 +301,7 @@ GET /health
   "gpu_memory_used": "351MiB",
   "gpu_memory_total": "24576MiB",
   "model_loaded": true,
-  "current_model": "flux-dev"
+  "current_model": "sdxl"
 }
 ```
 
@@ -316,9 +316,9 @@ GET /v1/models
 ```json
 {
   "data": [
+    {"id": "sdxl", "object": "model"},
     {"id": "flux-dev", "object": "model"},
-    {"id": "flux-schnell", "object": "model"},
-    {"id": "sdxl", "object": "model"}
+    {"id": "flux-schnell", "object": "model"}
   ]
 }
 ```
@@ -341,7 +341,7 @@ GET /v1/models
 |------|-----|
 | **API Key** | (可选，留空或填 `local`) |
 | **Base URL** | `http://100.64.0.2:7865/v1` (GPU 机器的 Tailscale IP) |
-| **模型** | `flux-dev` |
+| **模型** | `sdxl` |
 
 > **注意**: Tailscale 使用内网 IP，格式为 `100.x.x.x`，端口为 `7865`
 
@@ -366,7 +366,7 @@ GET /v1/models
 
 ```bash
 # 默认模型
-export DEFAULT_MODEL=flux-dev
+export DEFAULT_MODEL=sdxl
 
 # 模型缓存路径
 export HF_HOME=/home/wangwei/.cache/huggingface
