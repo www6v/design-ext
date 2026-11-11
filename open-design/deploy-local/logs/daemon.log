@@ -1,3 +1,4 @@
+[media] reconcileMediaTasksOnBoot interrupted 0 task(s), deleted 2 expired terminal task(s)
 [plugins] registered 478 bundled plugin(s)
 [plugins] seeded community registry source (5 plugin(s))
 [plugins] seeded official registry source (478 plugin(s))
@@ -15,10 +16,7 @@
   blockedReason: 'missing_sink'
 }
 [od] listening on http://127.0.0.1:7456
-[provider:models] openai dashscope.aliyuncs.com → 154 models in 215ms
-[test:provider] openai dashscope.aliyuncs.com model=deepseek-v4-pro → 200 in 2058ms
-[test:provider] openai dashscope.aliyuncs.com model=deepseek-v4-pro → 200 in 1775ms
-[test:agent] Claude Code → ok in 6.3s
+[langfuse-trace] Telemetry metrics are enabled but no relay or Langfuse credentials are configured
 [od-next-rollout] {
   decisionClass: 'explicit_user',
   requestedMode: 'active',
@@ -30,10 +28,20 @@
   assignmentClass: 'not_included',
   primaryReasonCode: 'od_next_rollout_explicit_user_authority'
 }
-[media] {"event":"queued","task_id":"75a9e033-0da2-4151-afe8-528ba5b378e2","run_id":"fbe0d4a5-3127-451d-bd47-25dd3a225942","project_id":"2d98215a-8d6a-4288-a016-913c349faf6b","surface":"image","model_id":"vela/gpt-image-2","provider_id":"vela","status":"queued","reference_image_count":0,"has_composition_dir":false}
-[media] {"event":"failed","task_id":"75a9e033-0da2-4151-afe8-528ba5b378e2","run_id":"fbe0d4a5-3127-451d-bd47-25dd3a225942","project_id":"2d98215a-8d6a-4288-a016-913c349faf6b","surface":"image","model_id":"vela/gpt-image-2","provider_id":"vela","status":400,"elapsed_ms":6,"error":"vela binary not found; install vela or configure VELA_BIN"}
-[langfuse-trace] Telemetry metrics are enabled but no relay or Langfuse credentials are configured
-[media] {"event":"queued","task_id":"09434834-cf9a-4160-ac8b-e62a3ec3d4db","run_id":null,"project_id":"2d98215a-8d6a-4288-a016-913c349faf6b","surface":"image","model_id":"flux-dev-fal","provider_id":"fal","status":"queued","reference_image_count":0,"has_composition_dir":false}
-[media] {"event":"failed","task_id":"09434834-cf9a-4160-ac8b-e62a3ec3d4db","run_id":null,"project_id":"2d98215a-8d6a-4288-a016-913c349faf6b","surface":"image","model_id":"flux-dev-fal","provider_id":"fal","status":400,"elapsed_ms":1961,"error":"fal submit 403: {\"detail\":\"User is locked. Reason: Exhausted balance. Top up your balance at fal.ai/dashboard/billing.\"}"}
-[media] {"event":"queued","task_id":"4586d02c-2d6f-40d3-80bb-d09dbbbadbdf","run_id":null,"project_id":"2d98215a-8d6a-4288-a016-913c349faf6b","surface":"image","model_id":"custom-image","provider_id":"custom-image","status":"queued","reference_image_count":0,"has_composition_dir":false}
-[media] {"event":"failed","task_id":"4586d02c-2d6f-40d3-80bb-d09dbbbadbdf","run_id":null,"project_id":"2d98215a-8d6a-4288-a016-913c349faf6b","surface":"image","model_id":"custom-image","provider_id":"custom-image","status":400,"elapsed_ms":158,"error":"custom image 404:"}
+[media] {"event":"queued","task_id":"4a8d06b9-8807-4e34-8287-189476d62dff","run_id":"b705a7ae-afe8-4dcd-8d67-70dcab1182d5","project_id":"69d50470-9c0e-4f00-a0f1-ae0fda82a69e","surface":"image","model_id":"vela/gpt-image-2","provider_id":"vela","status":"queued","reference_image_count":0,"has_composition_dir":false}
+[media] {"event":"failed","task_id":"4a8d06b9-8807-4e34-8287-189476d62dff","run_id":"b705a7ae-afe8-4dcd-8d67-70dcab1182d5","project_id":"69d50470-9c0e-4f00-a0f1-ae0fda82a69e","surface":"image","model_id":"vela/gpt-image-2","provider_id":"vela","status":400,"elapsed_ms":7,"error":"vela binary not found; install vela or configure VELA_BIN"}
+[od-next-rollout] {
+  decisionClass: 'explicit_user',
+  requestedMode: 'active',
+  effectiveMode: 'off',
+  taskType: null,
+  agentId: 'claude',
+  agentVersion: null,
+  sourceKind: null,
+  assignmentClass: 'not_included',
+  primaryReasonCode: 'od_next_rollout_explicit_user_authority'
+}
+[media] {"event":"queued","task_id":"c1872653-78b7-4850-904d-3e6a88a1de1f","run_id":"b705a7ae-afe8-4dcd-8d67-70dcab1182d5","project_id":"69d50470-9c0e-4f00-a0f1-ae0fda82a69e","surface":"image","model_id":"gpt-image-2","provider_id":"openai","status":"queued","reference_image_count":0,"has_composition_dir":false}
+[media] {"event":"failed","task_id":"c1872653-78b7-4850-904d-3e6a88a1de1f","run_id":"b705a7ae-afe8-4dcd-8d67-70dcab1182d5","project_id":"69d50470-9c0e-4f00-a0f1-ae0fda82a69e","surface":"image","model_id":"gpt-image-2","provider_id":"openai","status":400,"elapsed_ms":10520,"error":"fetch failed"}
+[media] {"event":"queued","task_id":"b53f96da-20b0-43e6-90d4-cadb7f1479dd","run_id":"b705a7ae-afe8-4dcd-8d67-70dcab1182d5","project_id":"69d50470-9c0e-4f00-a0f1-ae0fda82a69e","surface":"image","model_id":"openai/gpt-image-2","provider_id":"imagerouter","status":"queued","reference_image_count":0,"has_composition_dir":false}
+[media] {"event":"failed","task_id":"b53f96da-20b0-43e6-90d4-cadb7f1479dd","run_id":"b705a7ae-afe8-4dcd-8d67-70dcab1182d5","project_id":"69d50470-9c0e-4f00-a0f1-ae0fda82a69e","surface":"image","model_id":"openai/gpt-image-2","provider_id":"imagerouter","status":400,"elapsed_ms":3,"error":"no ImageRouter API key — configure it in Settings → Media providers or set OD_IMAGEROUTER_API_KEY"}
